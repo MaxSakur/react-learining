@@ -1,12 +1,21 @@
 import React from 'react';
 import { BrowserRouter  } from 'react-router-dom';
-import state, {methods} from './redux/data';
+import store from './redux/data';
 import ReactDOM from "react-dom";
 
 import App from './App';
 
-ReactDOM.render((
-    <BrowserRouter >
-        <App state={state} methods={methods}/>
-    </BrowserRouter >
-), document.getElementById('root'))
+let rerenderPage = () => {
+    ReactDOM.render((
+        <BrowserRouter >
+            <App state={store}/>
+        </BrowserRouter >
+    ), document.getElementById('root'))
+}
+
+
+rerenderPage(store.getState());
+
+store.subscribe(rerenderPage)
+
+export default rerenderPage;

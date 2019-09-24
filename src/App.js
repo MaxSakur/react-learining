@@ -12,7 +12,7 @@ const App = (props) => {
       <div className="App">
           <Header/>
           <main>
-              <Route path='/info' render={() => <Info props={props.state} methods={props.methods}/>}/>
+              <Route path='/info' render={() => <Info props={props.state}/>}/>
               <Route path='/contacts' render={() => <Contacts />}/>
           </main>
       </div>
