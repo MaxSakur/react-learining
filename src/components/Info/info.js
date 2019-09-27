@@ -12,12 +12,14 @@ const Info = (props) => {
     let textFromInput = React.createRef();
 
     let addRow = () => {
-        props.dispatch(addTextActionCreator())
+        let action = addTextActionCreator()
+        props.dispatch(action)
     }
 
     let onTextChange = () => {
         let text = textFromInput.current.value;
-        props.dispatch(updateTextValueActionCreator(text))
+        let action = updateTextValueActionCreator(text)
+        props.dispatch(action)
     }
 
 
