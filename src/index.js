@@ -8,7 +8,7 @@ import App from './App';
 let rerenderPage = () => {
     ReactDOM.render((
         <BrowserRouter >
-            <App state={store}/>
+            <App state={store} dispatch={store.dispatch.bind(store)}/>
         </BrowserRouter >
     ), document.getElementById('root'))
 }

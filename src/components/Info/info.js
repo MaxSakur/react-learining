@@ -1,19 +1,23 @@
 import React from 'react';
 import './modules.info.css'
+import {addTextActionCreator, updateTextValueActionCreator} from "../../redux/data";
+
+
+
+
+
 
 const Info = (props) => {
 
     let textFromInput = React.createRef();
 
     let addRow = () => {
-        let text = textFromInput.current.value;
-        props.props.addTextToState(text);
-        textFromInput.current.value = '';
+        props.dispatch(addTextActionCreator())
     }
 
     let onTextChange = () => {
         let text = textFromInput.current.value;
-        props.props.updateTextValue(text);
+        props.dispatch(updateTextValueActionCreator(text))
     }
 
 
@@ -24,6 +28,7 @@ const Info = (props) => {
             <input type="text" onChange={onTextChange} ref={textFromInput}/>
             <button onClick={addRow}>ADD TEXT</button>
         </div>
+
     )
 }
 
