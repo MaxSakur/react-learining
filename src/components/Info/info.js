@@ -20,6 +20,8 @@ const Info = (props) => {
         let text = textFromInput.current.value;
         let action = updateTextValueActionCreator(text)
         props.dispatch(action)
+
+    //    COM<IT
     }
 
 
