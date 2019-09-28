@@ -13,6 +13,7 @@ let rerenderPage = () => {
     ), document.getElementById('root'))
 }
 
+// TO BIND CONTEXT TO FUNCTION ( METHOD ) OF STORE - ADD .BIND(store)
 
 rerenderPage(store.getState());
 
