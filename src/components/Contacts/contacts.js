@@ -12,12 +12,6 @@ const Contacts = (props) => {
   let  newContactName   = React.createRef();
   let  newContactValue = React.createRef();
 
-  let addInputData = () => {
-    let newName = newContactName.current.value;
-    let newValue = newContactValue.current.value;
-    let action = addInputData(newName, newValue)
-    props.dispatch(action)
-  }
 
   let testF = () => {
     let newName = newContactName.current.value;
@@ -34,7 +28,7 @@ const Contacts = (props) => {
         }
         <div className="inputs">
           <input type="text" ref={newContactName} />
-          {/*<input type="text" ref={newContactValue} />*/}
+          <input type="text" ref={newContactValue} />
           <button type="submit" onClick={testF}>ADD</button>
         </div>
 

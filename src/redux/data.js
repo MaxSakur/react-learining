@@ -39,8 +39,8 @@ let store = {
             this.rerenderPage(this._state);
         } else if  (action.type === ADD_INPUT_DATA){
             let newInputElement = {
-                id: this._state.contactPage.length - 1,
-                name: action.text,
+                id: this._state.contactPage.length,
+                name: action.name,
                 value: action.value,
             }
             this._state.contactPage.push(newInputElement);
