@@ -12,11 +12,20 @@ let store = {
                 {name: 'Helen', age: 25, id: 2}
             ],
         infoText: 'new text',
-        contactPage: [
-            {id: 0, name: 'Phone', value: '0980354882'},
-            {id: 1, name: 'Adress', value: 'ул. Анри '},
-            {id: 2, name: 'Working time', value: '11:00 to 18:00'},
-        ],
+        contactPage: {
+            feedback: [
+                {id: 0, name: 'Lory', value: 'Nice company'},
+                {id: 1, name: 'Carlos', value: 'Hate this shit'},
+                {id: 2, name: 'David', value: 'God bless me'},
+            ],
+            contacts: [
+                {id: 0, name: 'Phone', value: '0980354882'},
+                {id: 1, name: 'Adress', value: 'ул. Анри '},
+                {id: 2, name: 'Working time', value: '11:00 to 18:00'},
+            ]
+        }
+
+
     },
     getState() {
         return this._state;
@@ -39,11 +48,11 @@ let store = {
             this.rerenderPage(this._state);
         } else if  (action.type === ADD_INPUT_DATA){
             let newInputElement = {
-                id: this._state.contactPage.length,
+                id: this._state.contactPage.feedback.length,
                 name: action.name,
                 value: action.value,
             }
-            this._state.contactPage.push(newInputElement);
+            this._state.contactPage.feedback.push(newInputElement);
             console.log(newInputElement);
             this.rerenderPage(this._state);
         }
@@ -51,7 +60,9 @@ let store = {
     }
 }
 
-export const addTextActionCreator = () => ({type: ADD_TEXT})
+export const addTextActionCreator = () => ({
+    type: ADD_TEXT
+})
 
 export const updateTextValueActionCreator = (text) => ({
     type: UPDATE_TEXT_VALUE,
