@@ -1,0 +1,30 @@
+.contacts *{
+    font-family: Mansalva;
+}
+
+.contacts--wrapper {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid rosybrown;
+    padding: 20px;
+}
+.feedback {
+    border-radius: 4px;
+    margin: 5px 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 8px;
+}
+.feedback:hover {
+    box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+.feedback--header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.feedback--icon {
+    height: 25px;
+    width: 25px;
+    padding-right: 4px;
+}

@@ -12,11 +12,20 @@ let store = {
                 {name: 'Helen', age: 25, id: 2}
             ],
         infoText: 'new text',
-        contactPage: [
-            {id: 0, name: 'Phone', value: '0980354882'},
-            {id: 1, name: 'Adress', value: 'ул. Анри '},
-            {id: 2, name: 'Working time', value: '11:00 to 18:00'},
-        ],
+        contactPage: {
+            feedback: [
+                {id: 0, name: 'Lory', value: 'Nice company'},
+                {id: 1, name: 'Carlos', value: 'Hate this shit'},
+                {id: 2, name: 'David', value: 'God bless me'},
+            ],
+            contacts: [
+                {id: 0, name: 'Phone', value: '0980354882'},
+                {id: 1, name: 'Adress', value: 'ул. Анри '},
+                {id: 2, name: 'Working time', value: '11:00 to 18:00'},
+            ]
+        }
+
+
     },
     getState() {
         return this._state;
