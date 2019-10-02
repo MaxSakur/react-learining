@@ -1,6 +1,11 @@
-@font-face {
-  font-family: Mansalva;
-  src: url("assets/fonts/Mansalva-Regular.ttf") format("ttf");
+
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+h2 {
+  text-align: center;
 }
 body {
   margin: 0;
@@ -9,7 +14,3 @@ body {
 }
 
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}

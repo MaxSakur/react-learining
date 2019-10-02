@@ -17,8 +17,15 @@ const Contacts = (props) => {
   let testF = () => {
     let newName = newContactName.current.value;
     let newValue = newContactValue.current.value;
-    let action = addInputDataCreator(newName, newValue)
-    props.dispatch(action)
+    if (!newName && !newValue) {
+      return null;
+    } else {
+      let action = addInputDataCreator(newName, newValue)
+      props.dispatch(action);
+
+    }
+    newContactName = "";
+    newContactValue = "";
   }
 
   return (
@@ -40,16 +47,20 @@ const Contacts = (props) => {
                 </div>
                )
             }
-            <input type="text" ref={newContactName} />
-            <input type="text" ref={newContactValue} />
-            <button type="submit" onClick={testF}>ADD</button>
-          </div>
+            <div className="newFeedback">
+              <label htmlFor="newFeedbackName" className="newFeedbackLabel">Your name</label>
+              <input name="newFeedbackName" className="newFeedbackName" type="text" ref={newContactName} />
+              <textarea placeholder="Your message" className="newFeedbackValue" type="text" ref={newContactValue} />
+              <button className="newFeedbackButton" type="submit" onClick={testF}>ADD</button>
+            </div>
 
+          </div>
 
           <div className="contacts--information">
             {contactsData.map((item) =>
-                <div className="contacts" key={`item.name_${item.name}`}>
-                  <p>123</p>
+                <div className="contacts" key={`item.name_${item.name}+${item.value}`}>
+                  <p>{item.name}</p>
+                  <p>{item.value}</p>
                 </div>
             )
             }

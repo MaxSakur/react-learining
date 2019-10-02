@@ -48,11 +48,11 @@ let store = {
             this.rerenderPage(this._state);
         } else if  (action.type === ADD_INPUT_DATA){
             let newInputElement = {
-                id: this._state.contactPage.length,
+                id: this._state.contactPage.feedback.length,
                 name: action.name,
                 value: action.value,
             }
-            this._state.contactPage.push(newInputElement);
+            this._state.contactPage.feedback.push(newInputElement);
             console.log(newInputElement);
             this.rerenderPage(this._state);
         }
@@ -60,7 +60,9 @@ let store = {
     }
 }
 
-export const addTextActionCreator = () => ({type: ADD_TEXT})
+export const addTextActionCreator = () => ({
+    type: ADD_TEXT
+})
 
 export const updateTextValueActionCreator = (text) => ({
     type: UPDATE_TEXT_VALUE,

@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter  } from 'react-router-dom';
 import store from './redux/data';
 import ReactDOM from "react-dom";
-
+import './index.css'
 import App from './App';
 
 let rerenderPage = () => {
