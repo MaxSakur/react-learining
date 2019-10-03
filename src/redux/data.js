@@ -1,3 +1,4 @@
+import {addTextReducer, updateTextReducer, addInputDataReducer } from './reducers';
 
 const ADD_TEXT = 'ADD-TEXT';
 const UPDATE_TEXT_VALUE = 'UPDATE-TEXT-VALUE';
@@ -34,29 +35,10 @@ let store = {
         this.rerenderPage = observer;
     },
     dispatch(action) {
-        if ( action.type === ADD_TEXT) {
-            let newPost = {
-                id: 3,
-                name: this._state.infoText,
-                age: 0
-            };
-            this._state.infoPage.push(newPost);
-            this._state.infoText = '';
-            this.rerenderPage(this._state);
-        } else if  (action.type === UPDATE_TEXT_VALUE){
-            this._state.infoText = action.text;
-            this.rerenderPage(this._state);
-        } else if  (action.type === ADD_INPUT_DATA){
-            let newInputElement = {
-                id: this._state.contactPage.feedback.length,
-                name: action.name,
-                value: action.value,
-            }
-            this._state.contactPage.feedback.push(newInputElement);
-            console.log(newInputElement);
-            this.rerenderPage(this._state);
-        }
-
+        this._state.infoPage = addTextReducer(this._state.infoPage, action);
+        this._state.infoText = updateTextReducer(this._state.infoText, action);
+        this._state.contactPage = addInputDataReducer( this._state.contactPage, action);
+        this.rerenderPage(this._state);
     }
 }
 
