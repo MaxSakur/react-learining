@@ -1,22 +1,24 @@
-import React from 'react';
-import { BrowserRouter  } from 'react-router-dom';
-import store from './redux/data';
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
+import store from "./redux/redux-store";
 import ReactDOM from "react-dom";
-import './index.css'
-import App from './App';
+import "./index.css";
+import App from "./App";
 
-let rerenderPage = () => {
-    ReactDOM.render((
-        <BrowserRouter >
-            <App state={store} dispatch={store.dispatch.bind(store)}/>
-        </BrowserRouter >
-    ), document.getElementById('root'))
-}
-
-// TO BIND CONTEXT TO FUNCTION ( METHOD ) OF STORE - ADD .BIND(store)
+let rerenderPage = state => {
+  ReactDOM.render(
+    <BrowserRouter>
+      <App state={state} store={store} dispatch={store.dispatch.bind(store)} />
+    </BrowserRouter>,
+    document.getElementById("root")
+  );
+};
 
 rerenderPage(store.getState());
 
-store.subscribe(rerenderPage)
+store.subscribe(() => {
+  let state = store.getState();
+  rerenderPage(state);
+});
 
 export default rerenderPage;

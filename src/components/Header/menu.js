@@ -1,15 +1,15 @@
 import React from 'react';
-
+import './module.menu.css'
 
  const Header = () => {
     return (
         <nav>
-            <ul>
-                <li>
-                    <a href="/Info">Info</a>
+            <ul className="menu">
+                <li className="menu--item">
+                    <a className="menu--item_link" href="/Info">Info</a>
                 </li>
-                <li>
-                    <a href="/Contacts">Contacts</a>
+                <li className="menu--item">
+                    <a className="menu--item_link" href="/Contacts">Contacts</a>
                 </li>
 
             </ul>
