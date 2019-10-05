@@ -1,17 +1,20 @@
 import React from "react";
-import { addInputDataCreator } from "../../redux/data";
+import { addInputDataCreator } from "../../redux/reducers";
 import "./module.contacs.css";
 
 import user from "./../../assets/user.png";
 
 const Contacts = props => {
-  console.log(props);
+  console.log('Contacts props --->', props);
 
-  let feedbackData = props.addTextReducer;
-  let contactsData = props.addTextReducer;
+  let feedbackData = props.props.addInputDataReducer[0];
+  let contactsData = props.props.addInputDataReducer[1];
 
-  console.log(feedbackData);
-  console.log(contactsData);
+  // let feedbackData = [];
+  // let contactsData = [];
+
+  console.log('feedbackData-->',feedbackData);
+  console.log('contactsData-->',contactsData);
 
   let newContactName = React.createRef();
   let newContactValue = React.createRef();
@@ -22,9 +25,11 @@ const Contacts = props => {
     if (!newName && !newValue) {
       return null;
     } else {
+ 
       let action = addInputDataCreator(newName, newValue);
       props.dispatch(action);
     }
+    
     newContactName = "";
     newContactValue = "";
   };

@@ -47,16 +47,33 @@ export const updateTextReducer = (state = initialState.infoText, action) => {
 };
 
 export const addInputDataReducer = (
-  state = [initialState.feedback, initialState.contacts],
+  state = [initialState.contactPage.feedback, initialState.contactPage.contacts],
   action
 ) => {
   if (action.type === ADD_INPUT_DATA) {
     let newInputElement = {
-      id: state.feedback.length,
+      id: state[0].length ,
       name: action.name,
       value: action.value
     };
-    state.feedback.push(newInputElement);
+    
+    state[0].push(newInputElement);
   }
   return state;
 };
+
+
+export const addTextActionCreator = () => ({
+    type: ADD_TEXT
+})
+
+export const updateTextValueActionCreator = (text) => ({
+    type: UPDATE_TEXT_VALUE,
+    text: text
+})
+
+export const addInputDataCreator = (name, value) => ({
+    type: ADD_INPUT_DATA,
+    name: name,
+    value: value
+})

@@ -6,6 +6,12 @@ import { Info, Contacts } from "./components";
 import { Route } from "react-router-dom";
 
 const App = props => {
+
+  console.log('props APP -->', props)
+  console.log('props APP Disatch -->', props.dispatch)
+  console.log('props APP state -->', props.state)
+  console.log('props APP store -->', props.store)
+
   return (
     <div className="App">
       <Header />
