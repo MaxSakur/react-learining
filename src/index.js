@@ -12,7 +12,7 @@ let rerenderPage = state => {
     </BrowserRouter>,
     document.getElementById("root")
   );
-};
+};  
 
 rerenderPage(store.getState());
 
