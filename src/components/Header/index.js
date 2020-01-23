@@ -1,3 +1,3 @@
-import menu from './menu';
+import header from './header'
 
-export default menu
+export default header

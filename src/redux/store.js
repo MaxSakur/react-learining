@@ -1,15 +1,8 @@
 import { combineReducers, createStore } from 'redux'
-
-import {
-  addTextReducer,
-  updateTextReducer,
-  addInputDataReducer,
-} from "./reducers";
+import { productsStoreReducer } from './reducers/getProductionReducer'
 
 let reducers = combineReducers({
-  addTextReducer,
-  updateTextReducer,
-  addInputDataReducer
+  productsStoreReducer
 });
 
 /* eslint-disable no-underscore-dangle */

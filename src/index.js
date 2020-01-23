@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
-import store from "./redux/redux-store";
+import store from "./redux/store";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
@@ -8,7 +8,7 @@ import App from "./App";
 let rerenderPage = state => {
   ReactDOM.render(
     <BrowserRouter>
-      <App state={state} store={store} dispatch={store.dispatch.bind(store)} />
+      <App state={state} store={store}  />
     </BrowserRouter>,
     document.getElementById("root")
   );
