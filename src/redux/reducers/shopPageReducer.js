@@ -16,7 +16,7 @@ action
     switch(action.type) {
         case GET_PRODUCTS:
             console.log('GET_PRODUCTS')
-            break
+            return state
         default: 
             return state
     }

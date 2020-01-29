@@ -1,6 +1,7 @@
 import React from 'react'
 
-const ShopPage = () => {
+const ShopPage = (props) => {
+    console.log('props', props.getProducts)
     return (
         <div>
             <p>SHOP PAGE CONTENT</p>

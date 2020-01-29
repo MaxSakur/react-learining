@@ -3,7 +3,7 @@ import React from "react";
 import { Header } from './components'
 import { Route } from 'react-router-dom'
 import {EntryPage} from './screens'
-// import ShopPageContainer from "./containers/shopPageContainer";
+import ShopPageContainer from "./containers/shopPageContainer";
 
 
 const App = props => {
@@ -13,7 +13,7 @@ const App = props => {
         <Header/>
         <div className="app-wrapper-content">
           <Route path='/entryPage' render={()=><EntryPage/>}/> 
-          {/* <Route path='/shopPage' render={()=><ShopPageContainer/>}/>  */}
+          <Route path='/shopPage' render={()=><ShopPageContainer/>}/> 
         </div>
     </div>
   );
