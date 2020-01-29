@@ -1,8 +1,12 @@
 import React from 'react'
 
+const CONTAINER = {
+  border: '1px solid red'
+}
+
 const EntryPage = () => {
     return (
-        <div>
+        <div style={CONTAINER}>
           <p>ENTRY PAGE CONTENT</p>
         </div>
     )
