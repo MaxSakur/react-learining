@@ -5,8 +5,12 @@ const ShopPage = props => {
   console.log(products);
   return (
     <div>
-      {products.map(item => {
-        return <p key={item.id}>{item.name}</p>;
+      {products.map((item, index) => {
+        return (
+          <p key={index} style={{ backgroundColor: item.color }}>
+            {item.name} - {item.size}
+          </p>
+        );
       })}
     </div>
   );

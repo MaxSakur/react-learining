@@ -2,10 +2,10 @@ const GET_PRODUCTS = "GET_PRODUCTS";
 
 let initialState = {
   products: [
-    { name: "T-Short", size: "S", color: "red" },
-    { name: "T-Short", size: "M", color: "blue" },
-    { name: "T-Short", size: "L", color: "green" },
-    { name: "T-Short", size: "XL", color: "black" }
+    { name: "Gloves", size: "S", color: "red" },
+    { name: "Boots", size: "M", color: "blue" },
+    { name: "Robe", size: "L", color: "green" },
+    { name: "Helmet", size: "XL", color: "#fafafa" }
   ]
 };
 
@@ -22,7 +22,7 @@ export const productsStoreReducer = (state = initialState, action) => {
   }
 };
 
-export const getAllProductsCreator = (products) => ({
+export const getAllProductsCreator = products => ({
   type: GET_PRODUCTS,
   payload: { products }
 });
