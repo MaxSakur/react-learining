@@ -1,13 +1,15 @@
-import React from 'react'
+import React from "react";
 
-const ShopPage = (props) => {
-    console.log('props', props.getProducts)
-    return (
-        <div>
-            <p>SHOP PAGE CONTENT</p>
-        </div>
-    )
-}
+const ShopPage = props => {
+  let products = props.products;
+  console.log(products);
+  return (
+    <div>
+      {products.map(item => {
+        return <p key={item.id}>{item.name}</p>;
+      })}
+    </div>
+  );
+};
 
-
-export default ShopPage
+export default ShopPage;
