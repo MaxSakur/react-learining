@@ -2,10 +2,15 @@ const GET_PRODUCTS = "GET_PRODUCTS";
 
 let initialState = {
   products: [
-    { name: "Gloves", size: "S", color: "red" },
-    { name: "Boots", size: "M", color: "blue" },
-    { name: "Robe", size: "L", color: "green" },
-    { name: "Helmet", size: "XL", color: "#fafafa" }
+    { name: "DC Gloves", size: "S", color: "red" },
+    { name: "DC Boots", size: "M", color: "blue" },
+    { name: "DC Robe", size: "L", color: "green" },
+    {
+      name: "DC Helmet",
+      size: "XL",
+      color: "#fafafa",
+      url: "https://calcuworld.com/wp-content/uploads/2016/04/Excel.png"
+    }
   ]
 };
 
