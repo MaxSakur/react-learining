@@ -1,17 +1,18 @@
-import React from "react";
+// import React from "react";
 import ShopPage from "./../screens/shopPage";
-import StoreContext from "../StoreContext";
+import { connect } from "react-redux";
+import { getAllProductsCreator } from "./../redux/reducers/shopPageReducer";
 
-const shopPageContainer = () => {
-  return (
-    <StoreContext.Consumer>
-      {store => {
-        let state = store.getState();
-        let products = state.productsStoreReducer.products;
-        return <ShopPage products={products} />;
-      }}
-    </StoreContext.Consumer>
-  );
+const mapStateToProps = state => {
+  return {
+    products: state.productsStoreReducer.products
+  };
 };
 
-export default shopPageContainer;
+const mapDispatchToProps = dispatch => {
+  return {
+    getProducts: () => dispatch(getAllProductsCreator())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ShopPage);

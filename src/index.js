@@ -4,14 +4,14 @@ import store from "./redux/store";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import StoreContext from "./StoreContext";
+import { Provider } from "react-redux";
 
 let rerenderPage = state => {
   ReactDOM.render(
     <BrowserRouter>
-      <StoreContext.Provider value={store}>
+      <Provider store={store}>
         <App />
-      </StoreContext.Provider>
+      </Provider>
     </BrowserRouter>,
     document.getElementById("root")
   );
