@@ -12,4 +12,6 @@ const store = createStore(
 );
 /* eslint-enable */
 
+window.store = store;
+
 export default store;

@@ -2,7 +2,6 @@ import React from "react";
 import "./itemlist.css";
 const defaultImagePath = "https://via.placeholder.com/150";
 const ItemList = array => {
-  console.log(typeof array.array);
   return (
     <div className="products">
       {Array.isArray(array.array)

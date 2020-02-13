@@ -4,7 +4,6 @@ import "./shopPage.css";
 
 const ShopPage = props => {
   let products = props.products;
-
   return (
     <div className="container">
       <ItemList array={products} />
