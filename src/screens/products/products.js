@@ -1,8 +1,8 @@
 import React from "react";
-import { ItemList } from "./../../components";
-import "./shopPage.css";
+import { ItemList } from "../../components";
+import "./index.css";
 
-const ShopPage = props => {
+const GoodAndServices = props => {
   let products = props.products;
   return (
     <div className="container">
@@ -11,4 +11,4 @@ const ShopPage = props => {
   );
 };
 
-export default ShopPage;
+export default GoodAndServices;

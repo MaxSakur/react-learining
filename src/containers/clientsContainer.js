@@ -1,7 +1,7 @@
 // import React from "react";
-import ShopPage from "./../screens/shopPage";
+import Products from "../screens/products";
 import { connect } from "react-redux";
-import { getAllProductsCreator } from "./../redux/reducers/shopPageReducer";
+import { getAllProductsCreator } from "./../redux/reducers/productsReduces";
 
 const mapStateToProps = state => {
   return {
@@ -15,4 +15,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ShopPage);
+export default connect(mapStateToProps, mapDispatchToProps)(Products);

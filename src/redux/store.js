@@ -1,5 +1,5 @@
 import { combineReducers, createStore } from "redux";
-import { productsStoreReducer } from "./reducers/shopPageReducer";
+import { productsStoreReducer } from "./reducers/productsReduces";
 
 let reducers = combineReducers({
   productsStoreReducer

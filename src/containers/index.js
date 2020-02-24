@@ -1,3 +1,3 @@
-import shopPageContainer from "./shopPageContainer";
+import ProductsContainer from "./productsContainer";
 
-export { shopPageContainer };
+export { ProductsContainer };

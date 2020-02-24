@@ -1,4 +1,4 @@
-import EntryPage from './entryPage'
-import ShopPage from './shopPage'
+import EntryPage from "./clients";
+import Products from "./products";
 
-export {EntryPage, ShopPage}
+export { EntryPage, Products };
