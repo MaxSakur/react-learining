@@ -1,18 +1,18 @@
 // import React from "react";
-import Products from "../screens/products";
+import Clients from "../screens/clients";
 import { connect } from "react-redux";
-import { getAllProductsCreator } from "./../redux/reducers/productsReduces";
+import { getClientsAC } from "./../redux/reducers/clientsReducer";
 
 const mapStateToProps = state => {
   return {
-    products: state.productsStoreReducer.products
+    clients: state.clientsPage.clients
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    getProducts: () => dispatch(getAllProductsCreator())
+    getClients: clients => dispatch(getClientsAC(clients))
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Products);
+export default connect(mapStateToProps, mapDispatchToProps)(Clients);

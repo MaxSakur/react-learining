@@ -1,8 +1,10 @@
 import { combineReducers, createStore } from "redux";
-import { productsStoreReducer } from "./reducers/productsReduces";
+import { productsStoreReducer } from "./reducers/productsReducer";
+import clientsReducer from "./reducers/clientsReducer";
 
 let reducers = combineReducers({
-  productsStoreReducer
+  productsStoreReducer,
+  clientsPage: clientsReducer
 });
 
 /* eslint-disable no-underscore-dangle */

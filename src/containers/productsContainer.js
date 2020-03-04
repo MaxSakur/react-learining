@@ -1,7 +1,7 @@
 // import React from "react";
 import Products from "../screens/products";
 import { connect } from "react-redux";
-import { getAllProductsCreator } from "./../redux/reducers/productsReduces";
+import { getAllProductsCreator } from "../redux/reducers/productsReducer";
 
 const mapStateToProps = state => {
   return {

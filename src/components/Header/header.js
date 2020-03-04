@@ -9,6 +9,11 @@ const Header = () => {
       <li>
         <a href="/products">Goods and Services</a>
       </li>
+      <li>
+        <a href="https://social-network.samuraijs.com/docs">
+          https://social-network.samuraijs.com/docs
+        </a>
+      </li>
     </div>
   );
 };
