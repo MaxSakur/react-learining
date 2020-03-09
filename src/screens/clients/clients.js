@@ -5,11 +5,11 @@ import styles from "./clients.module.css";
 const defaultImagePath = "https://via.placeholder.com/150";
 
 let Clients = (props) => {
-  let clients = props.clients;
+  let clients = props.clients || [];
 
   const changeCurrentPageHandler = (page) => {
-    this.props.changeCurrentPage(page);
-    this.dataFromBack(page);
+    props.changeCurrentPage(page);
+    props.dataFromBack(page);
   };
 
   const pagesCount = Math.ceil(props.totalClientsCount / props.pageSize);
@@ -19,7 +19,7 @@ let Clients = (props) => {
   for (let i = 1; i <= pagesCount; i++) {
     paginationItem.push(i);
   }
-
+  console.log(props);
   return (
     <div className={styles.container}>
       <Pagination

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./itemlist.modules.css";
+import styles from "./itemlist.module.css";
 const defaultImagePath = "https://via.placeholder.com/150";
 const ItemList = (array) => {
   return (
