@@ -1,17 +1,24 @@
 // import React from "react";
 import Clients from "../screens/clients";
 import { connect } from "react-redux";
-import { getClientsAC } from "./../redux/reducers/clientsReducer";
+import {
+  getClientsAC,
+  changeCurrentPageAC
+} from "./../redux/reducers/clientsReducer";
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    clients: state.clientsPage.clients
+    clients: state.clientsPage.clients,
+    currentPage: state.clientsPage.currentPage,
+    pageSize: state.clientsPage.pageSize,
+    totalClientsCount: state.clientsPage.totalClientsCount
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    getClients: clients => dispatch(getClientsAC(clients))
+    getClients: (clients) => dispatch(getClientsAC(clients)),
+    changeCurrentPage: (page) => dispatch(changeCurrentPageAC(page))
   };
 };
 

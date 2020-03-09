@@ -1,7 +1,7 @@
 import React from "react";
-import "./itemlist.css";
+import styles from "./itemlist.modules.css";
 const defaultImagePath = "https://via.placeholder.com/150";
-const ItemList = array => {
+const ItemList = (array) => {
   return (
     <div className="products">
       {Array.isArray(array.array)
@@ -9,15 +9,15 @@ const ItemList = array => {
             return (
               <div
                 key={index}
-                className="item"
+                className={styles.item}
                 style={{ backgroundColor: item.color }}
               >
                 <img
                   src={item.url || defaultImagePath}
                   alt={item.name}
-                  className="icon"
+                  className={styles.icon}
                 />
-                <div className="item-footer">
+                <div className={styles.item_footer}>
                   <p key={index}>{item.name}</p>
                   <p>{item.price}</p>
                 </div>

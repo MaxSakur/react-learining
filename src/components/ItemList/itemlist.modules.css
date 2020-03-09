@@ -15,7 +15,7 @@
   border-radius: 100%;
   border: 10px solid #fff;
 }
-.item-footer {
+.item_footer {
   display: flex;
   justify-content: space-between;
 }

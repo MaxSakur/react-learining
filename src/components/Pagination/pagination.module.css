@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  padding: 20px;
+}
+
+.container li {
+  padding: 0 10px;
+}
+
+.active {
+  font-weight: bold;
+}
