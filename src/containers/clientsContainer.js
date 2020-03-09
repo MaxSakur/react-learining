@@ -1,10 +1,10 @@
-// import React from "react";
-import Clients from "../screens/clients";
 import { connect } from "react-redux";
 import {
   getClientsAC,
-  changeCurrentPageAC
+  changeCurrentPageAC,
+  setTotalCountAC
 } from "./../redux/reducers/clientsReducer";
+import CliensContainerService from "../services/clientsConteinerService";
 
 const mapStateToProps = (state) => {
   return {
@@ -18,8 +18,12 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getClients: (clients) => dispatch(getClientsAC(clients)),
-    changeCurrentPage: (page) => dispatch(changeCurrentPageAC(page))
+    changeCurrentPage: (page) => dispatch(changeCurrentPageAC(page)),
+    setTotalCount: (count) => dispatch(setTotalCountAC(count))
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Clients);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CliensContainerService);

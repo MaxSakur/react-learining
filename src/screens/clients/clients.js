@@ -1,60 +1,44 @@
 import React from "react";
 import { Pagination } from "./../../components";
-import * as axios from "axios";
-import "./index.css";
+import styles from "./clients.module.css";
 
-class UsersListPage extends React.Component {
-  componentDidMount() {
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
-      )
-      .then((response) => {
-        this.props.getClients(response.data.items);
-      });
+const defaultImagePath = "https://via.placeholder.com/150";
+
+let Clients = (props) => {
+  let clients = props.clients;
+
+  const changeCurrentPageHandler = (page) => {
+    this.props.changeCurrentPage(page);
+    this.dataFromBack(page);
+  };
+
+  const pagesCount = Math.ceil(props.totalClientsCount / props.pageSize);
+
+  let paginationItem = [];
+
+  for (let i = 1; i <= pagesCount; i++) {
+    paginationItem.push(i);
   }
-  dataFromBack = (pageNumber) =>
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`
-      )
-      .then((response) => {
-        this.props.getClients(response.data.items);
-      });
 
-  render() {
-    let clients = this.props.clients;
+  return (
+    <div className={styles.container}>
+      <Pagination
+        data={paginationItem}
+        currentPage={props.currentPage}
+        onClick={changeCurrentPageHandler}
+      />
+      {clients.map((u) => (
+        <div key={u.id} className={styles.row}>
+          <img
+            src={u.photos.small || defaultImagePath}
+            className={styles.clientImage}
+            alt={`${u.id}`}
+          />
+          <p>{u.name}</p>
+        </div>
+      ))}
+    </div>
+  );
+};
 
-    const changeCurrentPageHandler = (page) => {
-      this.props.changeCurrentPage(page);
-      this.dataFromBack(page);
-    };
-
-    const pagesCount = Math.ceil(
-      this.props.totalClientsCount / this.props.pageSize
-    );
-
-    let paginationItem = [];
-
-    for (let i = 1; i <= pagesCount; i++) {
-      paginationItem.push(i);
-    }
-
-    return (
-      <div>
-        <Pagination
-          data={paginationItem}
-          currentPage={this.props.currentPage}
-          onClick={changeCurrentPageHandler}
-        />
-        {clients.map((u) => (
-          <div key={u.id} className="container">
-            <p>{u.name}</p>
-          </div>
-        ))}
-      </div>
-    );
-  }
-}
-
-export default UsersListPage;
+export default Clients;
