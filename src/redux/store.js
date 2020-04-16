@@ -1,10 +1,12 @@
 import { combineReducers, createStore } from "redux";
 import { productsStoreReducer } from "./reducers/productsReducer";
 import clientsReducer from "./reducers/clientsReducer";
+import profileReducer from "./reducers/profileReducer";
 
 let reducers = combineReducers({
   productsStoreReducer,
-  clientsPage: clientsReducer
+  profilePage: profileReducer,
+  clientsPage: clientsReducer,
 });
 
 /* eslint-disable no-underscore-dangle */

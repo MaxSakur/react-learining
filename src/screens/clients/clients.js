@@ -1,6 +1,7 @@
 import React from "react";
 import { Pagination } from "./../../components";
 import styles from "./clients.module.css";
+import { NavLink } from "react-router-dom";
 
 const defaultImagePath = "https://via.placeholder.com/150";
 
@@ -29,11 +30,14 @@ let Clients = (props) => {
       />
       {clients.map((u) => (
         <div key={u.id} className={styles.row}>
-          <img
-            src={u.photos.small || defaultImagePath}
-            className={styles.clientImage}
-            alt={`${u.id}`}
-          />
+          <NavLink to={"/profile/" + u.id}>
+            <img
+              src={u.photos.small || defaultImagePath}
+              className={styles.clientImage}
+              alt={`${u.id}`}
+            />
+          </NavLink>
+
           <p>{u.name}</p>
         </div>
       ))}

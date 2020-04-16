@@ -3,15 +3,15 @@ import Products from "../screens/products";
 import { connect } from "react-redux";
 import { getAllProductsCreator } from "../redux/reducers/productsReducer";
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    products: state.productsStoreReducer.products
+    products: state.productsStoreReducer.products,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    getProducts: () => dispatch(getAllProductsCreator())
+    getProducts: () => dispatch(getAllProductsCreator()),
   };
 };
 
