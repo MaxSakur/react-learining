@@ -30,11 +30,9 @@ export const toggleIsFetchingAC = (isFetching) => ({
 
 export const getProfileInfoThunkCreator = (profileID) => (dispatch) => {
   dispatch(toggleIsFetchingAC(true));
-  let userId = profileID || 2;
-  clientsAPI.getClientById(userId).then((data) => {
-    console.log(data);
-    // dispatch(toggleIsFetchingAC(false));
-    // dispatch(setProfileInfoAC(data));
+  clientsAPI.getClientById(profileID).then(({ data }) => {
+    dispatch(toggleIsFetchingAC(false));
+    dispatch(setProfileInfoAC(data));
   });
 };
 

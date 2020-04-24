@@ -1,17 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
-import { toggleIsFetchingAC } from "./../redux/reducers/goodsReducer";
-import { setProfileInfoAC } from "./../redux/reducers/profileReducer";
 
-import getProfileInfoThunkCreator from "./../redux/reducers/profileReducer";
+import { getProfileInfoThunkCreator } from "../redux/reducers/profileReducer";
 
-import Profile from "./../screens/profile";
+import Profile from "../screens/profile";
 import Preloader from "../components/Preloader/preloader";
 import { withRouter } from "react-router-dom";
 
 class profileContainer extends React.Component {
   componentDidMount() {
-    this.props.getProfileInfoThunkCreator(this.props.match.params.profileID);
+    let userId = this.props.match.params.profileID || 2;
+    this.props.getProfileInfoThunkCreator(userId);
   }
 
   render() {
@@ -33,9 +32,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    toggleIsFetching: (isFetching) => dispatch(toggleIsFetchingAC(isFetching)),
-    setProfileInfo: (data) => dispatch(setProfileInfoAC(data)),
-    getProfileInfoThunkCreator: () => dispatch(getProfileInfoThunkCreator()),
+    getProfileInfoThunkCreator: (id) =>
+      dispatch(getProfileInfoThunkCreator(id)),
   };
 };
 
