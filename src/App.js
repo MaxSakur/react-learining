@@ -1,19 +1,19 @@
 import React from "react";
 
-import { Header } from "./components";
 import { Route } from "react-router-dom";
 
-import ProductsContainer from "./containers/productsContainer";
-import ClientsContainer from "./containers/clientsContainer";
+import DiscontContainer from "./containers/productsContainer";
+import GoodsContainer from "./containers/goodsContainer";
 import ProfileContainer from "./containers/profileContainer";
+import HeaderContainer from "./containers/headerContainer";
 
 const App = (props) => {
   return (
     <div className="app">
-      <Header />
+      <HeaderContainer />
       <div className="app-wrapper-content">
-        <Route path="/clients" render={() => <ClientsContainer />} />
-        <Route path="/products" render={() => <ProductsContainer />} />
+        <Route path="/goods" render={() => <GoodsContainer />} />
+        <Route path="/discont" render={() => <DiscontContainer />} />
         <Route
           path="/profile/:profileID?"
           render={() => <ProfileContainer />}

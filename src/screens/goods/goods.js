@@ -1,6 +1,6 @@
 import React from "react";
-import { Pagination } from "./../../components";
-import styles from "./clients.module.css";
+import { Pagination } from "../../components";
+import styles from "./goods.module.css";
 import { NavLink } from "react-router-dom";
 
 const defaultImagePath = "https://via.placeholder.com/150";
@@ -20,7 +20,7 @@ let Clients = (props) => {
   for (let i = 1; i <= pagesCount; i++) {
     paginationItem.push(i);
   }
-  console.log(props);
+
   return (
     <div className={styles.container}>
       <Pagination

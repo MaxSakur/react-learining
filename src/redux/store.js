@@ -1,19 +1,19 @@
-import { combineReducers, createStore } from "redux";
+import { combineReducers, applyMiddleware, createStore } from "redux";
 import { productsStoreReducer } from "./reducers/productsReducer";
-import clientsReducer from "./reducers/clientsReducer";
+import goodsReducer from "./reducers/goodsReducer";
 import profileReducer from "./reducers/profileReducer";
+import authReducer from "./reducers/authReducer";
+import thunk from "redux-thunk";
 
 let reducers = combineReducers({
   productsStoreReducer,
   profilePage: profileReducer,
-  clientsPage: clientsReducer,
+  goodsReducer,
+  auth: authReducer,
 });
 
 /* eslint-disable no-underscore-dangle */
-const store = createStore(
-  reducers /* preloadedState, */,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+const store = createStore(reducers, applyMiddleware(thunk));
 /* eslint-enable */
 
 window.store = store;

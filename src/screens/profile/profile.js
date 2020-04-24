@@ -2,8 +2,6 @@ import React from "react";
 import Preloader from "../../components/Preloader/preloader";
 
 const Profile = ({ profile }) => {
-  console.log("profile", profile);
-
   if (!profile) {
     return <Preloader />;
   }

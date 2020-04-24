@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import { toggleIsFetchingAC } from "./../redux/reducers/clientsReducer";
+import { toggleIsFetchingAC } from "./../redux/reducers/goodsReducer";
 import { setProfileInfoAC } from "./../redux/reducers/profileReducer";
 
-import * as axios from "axios";
+import getProfileInfoThunkCreator from "./../redux/reducers/profileReducer";
 
 import Profile from "./../screens/profile";
 import Preloader from "../components/Preloader/preloader";
@@ -11,16 +11,7 @@ import { withRouter } from "react-router-dom";
 
 class profileContainer extends React.Component {
   componentDidMount() {
-    this.props.toggleIsFetching(true);
-    let userId = this.props.match.params.profileID || 2;
-    console.log("all props", this.props);
-    console.log("user ID", this.props.match.params.profileID);
-    axios
-      .get(`https://social-network.samuraijs.com/api/1.0/profile/` + userId)
-      .then((response) => {
-        this.props.toggleIsFetching(false);
-        this.props.setProfileInfo(response.data);
-      });
+    this.props.getProfileInfoThunkCreator(this.props.match.params.profileID);
   }
 
   render() {
@@ -44,6 +35,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     toggleIsFetching: (isFetching) => dispatch(toggleIsFetchingAC(isFetching)),
     setProfileInfo: (data) => dispatch(setProfileInfoAC(data)),
+    getProfileInfoThunkCreator: () => dispatch(getProfileInfoThunkCreator()),
   };
 };
 
