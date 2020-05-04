@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./header.module.css";
+import { NavLink } from "react-router-dom";
 
 const Header = ({ name }) => {
   const authName = name ? name : "Авторизация";
@@ -35,7 +36,9 @@ const Header = ({ name }) => {
         </li>
       </ul>
 
-      <p className={styles.auth}>{authName}</p>
+      <NavLink to="./login">
+        <p className={styles.auth}>{authName}</p>
+      </NavLink>
     </div>
   );
 };

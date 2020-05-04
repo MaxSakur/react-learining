@@ -1,0 +1,92 @@
+.container {
+  background: linear-gradient(
+    125deg,
+    var(--main-color) 10%,
+    var(--light-main) 45%,
+    var(--main-color) 90%
+  );
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.link {
+  color: #fff;
+  text-align: center;
+}
+
+.login_container .logo {
+  height: 100%;
+  margin-right: 40px;
+}
+.container h1 {
+  padding-bottom: 20px;
+}
+
+.login_container {
+  background: linear-gradient(
+    115deg,
+    var(--semi-main) 0,
+    var(--main-color) 50%,
+    var(--light-main) 35%,
+    var(--semi-main) 95%
+  );
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  position: relative;
+  height: 400px;
+}
+
+.auth_form {
+  display: flex;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  flex-direction: column;
+  color: #fff;
+  padding: 20px;
+}
+.auth_form form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-evenly;
+}
+.auth_form form label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 2px solid var(--light-main);
+}
+.auth_form form label p {
+  flex: 1;
+  text-align: right;
+  padding-right: 20px;
+  border-right: 1px solid #fff;
+  font-size: 16px;
+}
+
+.auth_form form label input {
+  padding: 5px 0;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  outline: none;
+  font-size: 20px;
+  padding-left: 20px;
+}
+.auth_form form input[type="submit"] {
+  margin-top: 20px;
+  background-color: transparent;
+  border: 2px solid var(--light-main);
+  width: 200px;
+  padding: 10px 0;
+  display: block;
+  border-radius: 20px;
+  margin: 20px auto;
+  color: #fff;
+  outline: none;
+}

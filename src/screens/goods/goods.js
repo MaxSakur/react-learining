@@ -10,7 +10,7 @@ let Clients = (props) => {
 
   const changeCurrentPageHandler = (page) => {
     props.changeCurrentPage(page);
-    props.dataFromBack(page);
+    props.getGoodsThunkCreator(page);
   };
 
   const pagesCount = Math.ceil(props.totalClientsCount / props.pageSize);
