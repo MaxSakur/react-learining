@@ -1,10 +1,21 @@
 import React from "react";
 import styles from "./header.module.css";
-import { NavLink } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 
-const Header = ({ name }) => {
-  const authName = name ? name : "Авторизация";
-
+const Header = ({ name, isAuth }) => {
+  console.log(isAuth);
+  const authName = name ? (
+    <p>{name}</p>
+  ) : (
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://social-network.samuraijs.com/"
+    >
+      <p style={{ color: "#fff" }}>Авторизация</p>
+    </a>
+  );
   return (
     <div className={styles.container}>
       <ul className={styles.navigation}>
@@ -12,33 +23,26 @@ const Header = ({ name }) => {
           <a href="/goods">Диллерская сеть</a>
         </li>
         <li>
-          <a href="/products">Refectocil Academy</a>
+          <a href="/discont">Refectocil Academy</a>
         </li>
         <li>
-          <a href="/products">Новости</a>
+          <a href="/discont">Новости</a>
         </li>
         <li>
-          <a href="/products">Доставка и оплата</a>
+          <a href="/discont">Доставка и оплата</a>
         </li>
         <li>
-          <a href="/products">Гарантия и обмен</a>
+          <a href="/discont">Гарантия и обмен</a>
         </li>
         <li>
-          <a href="/products">О компании</a>
-        </li>
-      </ul>
-      <ul className={styles.navigation}>
-        <li>
-          <a href="/products">Каталог товаров</a>
-        </li>
-        <li>
-          <a href="/discont">Акции</a>
+          <a href="/discont">О компании</a>
         </li>
       </ul>
 
-      <NavLink to="./login">
-        <p className={styles.auth}>{authName}</p>
-      </NavLink>
+      <div className={styles.auth}>
+        <FontAwesomeIcon icon={faUserCircle} color={"#fff"} />
+        {authName}
+      </div>
     </div>
   );
 };

@@ -8,7 +8,7 @@ import {
 
 import Goods from "../screens/goods";
 import Preloader from "../components/Preloader/preloader";
-import { Redirect } from "react-router-dom";
+import { withAuthRedirect } from "./../hoc/withAuthRedirect";
 
 const Content = ({ props }) => {
   return props.isFetching ? <Preloader /> : <Goods {...props} />;
@@ -23,13 +23,11 @@ class GoodsContainer extends React.Component {
   }
 
   render() {
-    if (!this.props.isAuth) {
-      return <Redirect to={"./login"} />;
-    }
-    console.log("", this.props.isAuth);
     return <Content props={this.props} />;
   }
 }
+
+let AuthRedirectComponent = withAuthRedirect(GoodsContainer);
 
 const mapStateToProps = (state) => {
   return {
@@ -38,7 +36,6 @@ const mapStateToProps = (state) => {
     pageSize: state.goodsReducer.pageSize,
     totalClientsCount: state.goodsReducer.totalClientsCount,
     isFetching: state.goodsReducer.isFetching,
-    isAuth: state.auth.isAuth,
   };
 };
 
@@ -51,4 +48,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(GoodsContainer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AuthRedirectComponent);

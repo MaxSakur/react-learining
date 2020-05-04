@@ -6,8 +6,8 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 50px;
-  background-color: lightblue;
+  height: 30px;
+  background-color: var(--main-color);
 }
 ul {
   display: flex;
@@ -16,9 +16,21 @@ ul {
 ul.navigation {
   justify-content: flex-start;
 }
-ul.auth {
+
+.auth {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: flex-end;
+  color: var(--text-color);
+  padding: 0 20px;
+}
+.auth svg {
+  padding-right: 20px;
 }
 ul li {
   padding: 0 20px;
+}
+ul li a {
+  color: var(--text-color);
 }

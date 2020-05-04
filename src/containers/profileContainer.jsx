@@ -5,7 +5,7 @@ import { getProfileInfoThunkCreator } from "../redux/reducers/profileReducer";
 
 import Profile from "../screens/profile";
 import Preloader from "../components/Preloader/preloader";
-import { withRouter, Redirect } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class profileContainer extends React.Component {
   componentDidMount() {
@@ -14,9 +14,6 @@ class profileContainer extends React.Component {
   }
 
   render() {
-    if (this.props.isAuth) {
-      return <Redirect to="./login" />;
-    }
     return (
       <>
         {this.props.isFetching ? (
@@ -31,7 +28,6 @@ class profileContainer extends React.Component {
 
 const mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
-  isAuth: state.auth.isAuth,
 });
 
 const mapDispatchToProps = (dispatch) => {

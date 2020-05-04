@@ -1,28 +1,25 @@
 import React from "react";
 import { connect } from "react-redux";
-import { authThunkCreator } from "./../redux/reducers/authReducer";
-
 import Header from "./../components/Header";
+import { withAuthRedirect } from "../hoc/withAuthRedirect";
 
 class HeaderContainer extends React.Component {
-  componentDidMount() {
-    this.props.auth();
-  }
-
   render() {
     return <Header {...this.props} />;
   }
 }
 
 const mapStateToProps = (state) => ({
-  isAuth: state.auth.isAuth,
   name: state.auth.login,
 });
 
+let AuthRedirectComponent = withAuthRedirect(HeaderContainer);
+
 const mapDispatchToProps = (dispatch) => {
-  return {
-    auth: () => dispatch(authThunkCreator()),
-  };
+  return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HeaderContainer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AuthRedirectComponent);
